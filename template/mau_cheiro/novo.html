@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang=”pt-br”>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>TADS refactor</title>
+
+        <link href="../css/bootstrap.css" rel="stylesheet">
+
+        <link href="../css/base.css" rel="stylesheet">
+
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/mau_cheiro_controlador.php?acao=lista">Maus Cheiros</a>
+                        </li>                        
+                       <li>
+                            <a href="http://localhost:8080/tcc/controlador/banco_controlador.php?acao=lista">Bancos</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/usuario_controlador.php?acao=novo">Cadastro</a>
+                        </li>
+                        <!-- BEGIN BLOCO_LOGADO -->
+                        <li>
+                            <p class="c-branco logout">Olá {USUARIO_LOGADO}
+                                <a href="{LINK_LOGOUT}">
+                                  <span class="glyphicon glyphicon-log-out c-branco"></span>
+                                </a>
+                            </p>
+                        </li>
+                        <!-- END BLOCO_LOGADO -->
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/usuario_controlador.php?acao=login">Entrar</a>
+                        </li>
+
+                        <!-- FINALLY BLOCO_LOGADO -->
+                    </ul>
+                </div>   
+            </div>
+    </nav>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{ACAO}
+                    <small>Mau Cheiro</small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="{RESULTADO_CLASSE}">
+                <strong>{RESULTADO}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form enctype="multipart/form-data" name="form_novo_mau_cheiro" method="POST" action="mau_cheiro_controlador.php?acao=salvar">
+                    <input type="hidden" name="id_mau_cheiro" value="{ID_MAU_CHEIRO}">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                                <label for="arquivo">Classe</label>
+                                <br/>
+                                <span>{CLASSE}</span>
+                                <input name="arquivo" type="file" class="file" data-allowed-file-extensions='["php"]'/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="descricao">Descrição</label>
+                            <textarea rows="10" cols="100" class="form-control" id="descricao" name="descricao" required data-validation-required-message="Por favor escreva uma descrição." maxlength="999" style="resize:none">{DESCRICAO}</textarea>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="tipo">Tipo de Refatoração</label>
+                            <select class="form-control" id="tipo" name="tipo">
+                                    <option value="">Selecione</option>
+                                <!-- BEGIN BLOCO_TIPOS -->
+                                    <option value="{TIPO_CODIGO}" {TIPO_SELECIONADO}>{TIPO_VALOR}</option>
+                                <!-- END BLOCO_TIPOS -->
+                            </select>
+                        </div>
+                    </div>
+                    <a href="javascript:window.history.go(-1)" class="btn btn-primary" role="button">Voltar</a>
+                    <button type="submit" class="btn btn-primary f-direita">Enviar</button>
+                </form> 
+           </div>
+
+        </div>
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; TADS FURG/IFRS 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/fileinput.js" type="text/javascript"></script>
+    <script src="../js/fileinput_locale_fr.js" type="text/javascript"></script>
+    <script src="../js/fileinput_locale_es.js" type="text/javascript"></script>
+    <script src="../js/usuario.js"></script>
+</body>
+
+</html>

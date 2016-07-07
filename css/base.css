@@ -1,0 +1,79 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+}
+
+header.carousel {
+    height: 70%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+.error-404 {
+    font-size: 100px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.thead-inverse th {
+    background-color: #373a3c;
+    color: #fff;
+    height: 60px;
+    vertical-align: middle !important;
+}
+
+a {
+    text-decoration: none;
+    color: #373a3c;
+}
+
+.c-branco {
+    color: #fff;
+}
+
+.logout {
+    margin: 12px 12px 12px 20px;
+}
+
+.f-direita {
+    float: right;
+}
+
+.erro {
+    color: #a94442;
+}
+
+.negrito {
+    font-weight:bold;
+}
+
+#editor {
+    margin: 20px;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.painel-editor {
+    height: 1500px;
+}

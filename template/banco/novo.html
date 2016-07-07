@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang=”pt-br”>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>TADS refactor</title>
+
+        <link href="../css/bootstrap.css" rel="stylesheet">
+
+        <link href="../css/base.css" rel="stylesheet">
+
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                                                <li>
+                            <a href="http://localhost:8080/tcc/controlador/mau_cheiro_controlador.php?acao=lista">Maus Cheiros</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/banco_controlador.php?acao=lista">Bancos</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/usuario_controlador.php?acao=novo">Cadastro</a>
+                        </li>
+                        <!-- BEGIN BLOCO_LOGADO -->
+                        <li>
+                            <p class="c-branco logout">Olá {USUARIO_LOGADO}
+                                <a href="{LINK_LOGOUT}">
+                                  <span class="glyphicon glyphicon-log-out c-branco"></span>
+                                </a>
+                            </p>
+                        </li>
+                        <!-- END BLOCO_LOGADO -->
+                        <li>
+                            <a href="http://localhost:8080/tcc/controlador/usuario_controlador.php?acao=login">Entrar</a>
+                        </li>
+
+                        <!-- FINALLY BLOCO_LOGADO -->
+                    </ul>
+                </div>   
+            </div>
+    </nav>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{ACAO}
+                    <small>Banco</small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="{RESULTADO_CLASSE}">
+                <strong>{RESULTADO}</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form name="form_novo_banco" method="POST" action="banco_controlador.php?acao=salvar">
+                    <input type="hidden" name="id_banco" value="{ID_BANCO}">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="host">Host</label>
+                            <input type="text" class="form-control" title="Digite o host do banco" placeholder="localhost" id="host" name="host"  required="required" value="{HOST}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" title="Digite o nome do banco" placeholder="banco_teste" id="nome" name="nome"  required="required" value="{BANCO}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="nome_usuario">Usuário</label>
+                            <input type="text" class="form-control" title="Digite o usuário para acessar o banco" placeholder="usuario123" id="nome_usuario" name="nome_usuario"  required="required" value="{USUARIO}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" title="Digite a senha para acessar o banco" id="senha" name="senha"  required="required" value="{SENHA}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="porta">Porta</label>
+                            <input type="text" maxlength="4" pattern="[0-9]+$" class="form-control" title="Digite porta para acessar o banco, que deve ser um número de até 4 dígitos" placeholder="5432" id="porta" name="porta"  required="required" value="{PORTA}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="padrao_chave_primaria">Padrão das Chaves Primárias</label>
+                            <input type="text" class="form-control" title="Digite o padrão das chaves primárias do banco" placeholder="id_xxxxx" id="padrao_chave_primaria" name="padrao_chave_primaria"  required="required" value="{PADRAO_CHAVE_PRIMARIA}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="padrao_chave_estrangeira">Padrão das Chaves Estrangeiras</label>
+                            <input type="text" class="form-control" title="Digite o padrão das chaves estrangeiras do banco" placeholder="xxxxx_id" id="padrao_chave_estrangeira" name="padrao_chave_estrangeira"  required="required" value="{PADRAO_CHAVE_ESTRANGEIRA}"/>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="quantidade_memoria">Quantidade de Memória</label>
+                            <input type="text" class="form-control" title="Digite a quantidade de memória do servidor" placeholder="12345465" id="quantidade_memoria" name="quantidade_memoria"  required="required" value="{QUANTIDADE_MEMORIA}"/>
+                        </div>
+                    </div>
+                    <a href="javascript:window.history.go(-1)" class="btn btn-primary" role="button">Voltar</a>
+                    <button type="submit" class="btn btn-primary f-direita">Enviar</button>
+                </form> 
+           </div>
+
+        </div>
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; TADS FURG/IFRS 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/usuario.js"></script>
+</body>
+
+</html>
